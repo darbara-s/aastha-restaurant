@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FBF6EF;
+  --foreground: #241C16;
+  --color-bg: #FBF6EF;
+  --color-bg-dark: #1B1410;
+  --color-primary: #B5432A;
+  --color-secondary: #C08A2E;
+  --color-accent: #4B5E3C;
+  --color-text: #241C16;
+  --color-text-muted: #6B5F55;
+  --color-border: #E4D9C8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  
+  --color-brand-bg: var(--color-bg);
+  --color-brand-bg-dark: var(--color-bg-dark);
+  --color-brand-primary: var(--color-primary);
+  --color-brand-secondary: var(--color-secondary);
+  --color-brand-accent: var(--color-accent);
+  --color-brand-text: var(--color-text);
+  --color-brand-text-muted: var(--color-text-muted);
+  --color-brand-border: var(--color-border);
+}
+
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Safe area padding for mobile notches */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Bottom nav clearance on mobile */
+@media (max-width: 767px) {
+  main {
+    padding-bottom: 80px;
+  }
+}
