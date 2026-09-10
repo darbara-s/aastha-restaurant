@@ -15,12 +15,18 @@ export interface MenuItem {
   spiceLevel?: SpiceLevel;
 }
 
+export interface DrinkVariant {
+  size: string;
+  price: string;
+  info?: string;
+}
+
 export interface DrinkItem {
   id: string;
   category: string;
   name: string;
   description?: string;
-  variants: { size: string; price: string }[];
+  variants: DrinkVariant[];
 }
 
 export interface LunchItem {
@@ -194,10 +200,7 @@ export const foodMenu: MenuItem[] = [
   { id: "69", category: "Tandoor Gerichte", name: "Chicken Pudina Tikka", description: "Hühnerbrustfilet mariniert in Pfefferminz-Joghurtsauce, zart gegrillt", price: "16,30", allergens: "G", isVeg: false },
   { id: "70", category: "Tandoor Gerichte", name: "Grill-Mix", description: "Zusammenstellung von Chicken Tikka, Scampi Tikka und Ente Tikka", price: "20,60", allergens: "A,B,G", isVeg: false },
 
-  // FÜR DEN KLEINEN HUNGER & KINDERGERICHTE
-  { id: "192", category: "Für den kleinen Hunger", name: "Samosa Chole", description: "gefüllte Gemüse-Teigtasche mit Kichererbsen", price: "8,30", allergens: "", isVeg: true },
-  { id: "194", category: "Für den kleinen Hunger", name: "Chicken & Chips", description: "mariniertes Hühnerfleisch mit Pommes, dazu Dip", price: "8,30", allergens: "G", isVeg: false },
-  { id: "193", category: "Für den kleinen Hunger", name: "Chole Bhatura", description: "Kichererbsen mit frischen Tomaten und Spezialgewürzen mit Bhatura-Brot, Zwiebeln und Sauce", price: "9,50", allergens: "G", isVeg: true },
+  // KINDERGERICHTE
   { id: "83", category: "Kindergerichte", name: "Kinderteller", description: "leicht gewürztes Gemüse in milder Rahmsauce mit Pommes oder Reis", price: "6,50", allergens: "G", isVeg: true },
   { id: "84", category: "Kindergerichte", name: "Chicken Malai", description: "leicht gewürztes Hähnchenfleisch in milder Rahmsauce mit Pommes oder Reis", price: "7,50", allergens: "G", isVeg: false },
   { id: "195", category: "Kindergerichte", name: "Mango Panir", description: "indischer Rahmkäse in Mangosauce mit Reis oder Pommes", price: "7,30", allergens: "G", isVeg: true },
@@ -263,537 +266,92 @@ export const foodMenu: MenuItem[] = [
 ];
 
 // =====================================================
-// GETRÄNKEKARTE - Mapped directly from PDF OCR
+// GETRÄNKEKARTE
 // =====================================================
 export const drinksMenu: DrinkItem[] = [
-  // Softdrinks
+  // Non-Alcoholic Drinks
   {
     id: "d1",
-    category: "Alkoholfreie Getränke",
-    name: "Spreequell (classic / still)",
-    variants: [{ size: "Fl. 0,75 l", price: "6,50" }],
+    category: "Non-Alcoholic Drinks",
+    name: "Coca-Cola",
+    variants: [
+      { size: "1.0 l", price: "4,80", info: "Contains caffeine (10 mg/100 ml) · 4,80 €/l" },
+    ],
   },
   {
     id: "d2",
-    category: "Alkoholfreie Getränke",
-    name: "Mineralwasser",
+    category: "Non-Alcoholic Drinks",
+    name: "Fanta",
     variants: [
-      { size: "0,20 l", price: "2,50" },
-      { size: "0,40 l", price: "4,10" },
+      { size: "1.0 l", price: "4,80", info: "4,80 €/l" },
     ],
   },
   {
     id: "d3",
-    category: "Alkoholfreie Getränke",
-    name: "Stilles Wasser",
+    category: "Non-Alcoholic Drinks",
+    name: "Sprite",
     variants: [
-      { size: "0,20 l", price: "2,50" },
-      { size: "0,40 l", price: "4,10" },
+      { size: "1.0 l", price: "4,80", info: "4,80 €/l" },
     ],
   },
   {
     id: "d4",
-    category: "Alkoholfreie Getränke",
-    name: "Coca-Cola",
+    category: "Non-Alcoholic Drinks",
+    name: "Spreequelle Still Water",
     variants: [
-      { size: "0,20 l", price: "2,70" },
-      { size: "0,40 l", price: "4,50" },
+      { size: "1.0 l", price: "4,50", info: "4,50 €/l" },
     ],
   },
   {
     id: "d5",
-    category: "Alkoholfreie Getränke",
-    name: "Coca-Cola light",
+    category: "Non-Alcoholic Drinks",
+    name: "Spreequelle Sparkling Water",
     variants: [
-      { size: "0,20 l", price: "2,70" },
-      { size: "0,40 l", price: "4,50" },
+      { size: "1.0 l", price: "4,50", info: "4,50 €/l" },
     ],
   },
   {
     id: "d6",
-    category: "Alkoholfreie Getränke",
-    name: "Fanta",
+    category: "Non-Alcoholic Drinks",
+    name: "Mango Juice",
     variants: [
-      { size: "0,20 l", price: "2,70" },
-      { size: "0,40 l", price: "4,50" },
+      { size: "1.0 l", price: "6,90", info: "6,90 €/l" },
     ],
   },
   {
     id: "d7",
-    category: "Alkoholfreie Getränke",
-    name: "Sprite",
+    category: "Non-Alcoholic Drinks",
+    name: "Lychee Juice",
     variants: [
-      { size: "0,20 l", price: "2,70" },
-      { size: "0,40 l", price: "4,50" },
+      { size: "1.0 l", price: "6,90", info: "6,90 €/l" },
     ],
   },
   {
     id: "d8",
-    category: "Alkoholfreie Getränke",
-    name: "Spezi",
+    category: "Non-Alcoholic Drinks",
+    name: "Guava Juice",
     variants: [
-      { size: "0,20 l", price: "2,70" },
-      { size: "0,40 l", price: "4,50" },
+      { size: "1.0 l", price: "6,90", info: "6,90 €/l" },
     ],
   },
   {
     id: "d9",
-    category: "Alkoholfreie Getränke",
-    name: "Schweppes Bitter Lemon",
+    category: "Non-Alcoholic Drinks",
+    name: "Mango Lassi",
     variants: [
-      { size: "0,20 l", price: "3,10" },
-      { size: "0,40 l", price: "4,90" },
+      { size: "0.5 l", price: "5,30" },
+      { size: "1.0 l", price: "10,00", info: "10,00 €/l" },
     ],
   },
+
+  // Alcoholic Beverages
   {
     id: "d10",
-    category: "Alkoholfreie Getränke",
-    name: "Schweppes Ginger Ale",
+    category: "Alcoholic Beverages",
+    name: "Indian Beer",
     variants: [
-      { size: "0,20 l", price: "3,10" },
-      { size: "0,40 l", price: "4,90" },
+      { size: "0.33 l", price: "4,00", info: "18+ · 5% vol · 12,12 €/l" },
     ],
-  },
-  {
-    id: "d11",
-    category: "Alkoholfreie Getränke",
-    name: "Schweppes Tonic Water",
-    variants: [
-      { size: "0,20 l", price: "3,10" },
-      { size: "0,40 l", price: "4,90" },
-    ],
-  },
-  {
-    id: "d12",
-    category: "Alkoholfreie Getränke",
-    name: "Malztrunk",
-    variants: [{ size: "Fl. 0,33 l", price: "3,70" }],
-  },
-  {
-    id: "d13",
-    category: "Alkoholfreie Getränke",
-    name: "Faßbrause",
-    variants: [
-      { size: "0,20 l", price: "3,10" },
-      { size: "0,40 l", price: "4,90" },
-    ],
-  },
-
-  // Indische Erfrischungsgetränke
-  {
-    id: "d14",
-    category: "Lassi & Indische Getränke",
-    name: "Lassi - salzig",
-    description: "mit Naturjoghurt",
-    variants: [
-      { size: "0,25 l", price: "2,90" },
-      { size: "0,40 l", price: "4,90" },
-    ],
-  },
-  {
-    id: "d15",
-    category: "Lassi & Indische Getränke",
-    name: "Lassi - süß",
-    description: "mit Naturjoghurt",
-    variants: [
-      { size: "0,25 l", price: "2,90" },
-      { size: "0,40 l", price: "4,90" },
-    ],
-  },
-  {
-    id: "d16",
-    category: "Lassi & Indische Getränke",
-    name: "Mango-Lassi",
-    description: "mit Naturjoghurt & Mangopüree",
-    variants: [
-      { size: "0,25 l", price: "3,10" },
-      { size: "0,40 l", price: "5,10" },
-    ],
-  },
-  {
-    id: "d17",
-    category: "Lassi & Indische Getränke",
-    name: "Mango-Shake",
-    description: "mit frischer Milch",
-    variants: [
-      { size: "0,25 l", price: "3,30" },
-      { size: "0,40 l", price: "5,30" },
-    ],
-  },
-  {
-    id: "d18",
-    category: "Lassi & Indische Getränke",
-    name: "Bananen-Lassi",
-    description: "mit Naturjoghurt",
-    variants: [
-      { size: "0,25 l", price: "3,30" },
-      { size: "0,40 l", price: "5,30" },
-    ],
-  },
-  {
-    id: "d19",
-    category: "Lassi & Indische Getränke",
-    name: "Bananen-Shake",
-    description: "mit frischer Milch",
-    variants: [
-      { size: "0,25 l", price: "3,30" },
-      { size: "0,40 l", price: "5,30" },
-    ],
-  },
-
-  // Säfte und Nektare
-  {
-    id: "d20",
-    category: "Alkoholfreie Getränke",
-    name: "Apfelsaft",
-    variants: [
-      { size: "0,20 l", price: "3,10" },
-      { size: "0,40 l", price: "5,10" },
-    ],
-  },
-  {
-    id: "d21",
-    category: "Alkoholfreie Getränke",
-    name: "Orangensaft",
-    variants: [
-      { size: "0,20 l", price: "3,10" },
-      { size: "0,40 l", price: "5,10" },
-    ],
-  },
-  {
-    id: "d22",
-    category: "Alkoholfreie Getränke",
-    name: "Bananennektar",
-    variants: [
-      { size: "0,20 l", price: "3,10" },
-      { size: "0,40 l", price: "5,10" },
-    ],
-  },
-  {
-    id: "d23",
-    category: "Alkoholfreie Getränke",
-    name: "Kirschnektar",
-    variants: [
-      { size: "0,20 l", price: "3,10" },
-      { size: "0,40 l", price: "5,10" },
-    ],
-  },
-  {
-    id: "d24",
-    category: "Alkoholfreie Getränke",
-    name: "Lycheenektar",
-    variants: [
-      { size: "0,20 l", price: "3,10" },
-      { size: "0,40 l", price: "5,10" },
-    ],
-  },
-  {
-    id: "d25",
-    category: "Alkoholfreie Getränke",
-    name: "Mangonektar",
-    variants: [
-      { size: "0,20 l", price: "3,10" },
-      { size: "0,40 l", price: "5,10" },
-    ],
-  },
-  {
-    id: "d26",
-    category: "Alkoholfreie Getränke",
-    name: "Guavennektar",
-    variants: [
-      { size: "0,20 l", price: "3,10" },
-      { size: "0,40 l", price: "5,10" },
-    ],
-  },
-  {
-    id: "d27",
-    category: "Alkoholfreie Getränke",
-    name: "Kiba (Kirsch-Banana)",
-    variants: [
-      { size: "0,20 l", price: "3,10" },
-      { size: "0,40 l", price: "5,10" },
-    ],
-  },
-  {
-    id: "d28",
-    category: "Alkoholfreie Getränke",
-    name: "Saftschorle",
-    variants: [
-      { size: "0,20 l", price: "2,90" },
-      { size: "0,40 l", price: "4,70" },
-    ],
-  },
-
-  // Bier
-  {
-    id: "d29",
-    category: "Bier",
-    name: "Flensburger vom Fass",
-    variants: [
-      { size: "0,30 l", price: "3,50" },
-      { size: "0,50 l", price: "4,70" },
-    ],
-  },
-  {
-    id: "d30",
-    category: "Bier",
-    name: "Alsterwasser",
-    description: "Bier mit Sprite, Cola oder Fanta",
-    variants: [
-      { size: "0,30 l", price: "3,70" },
-      { size: "0,50 l", price: "4,90" },
-    ],
-  },
-  {
-    id: "d31",
-    category: "Bier",
-    name: "Köstritzer Schwarzbier",
-    variants: [{ size: "Fl. 0,50 l", price: "4,70" }],
-  },
-  {
-    id: "d32",
-    category: "Bier",
-    name: "Hefeweizen (hell / dunkel / kristall / alkoholfrei)",
-    variants: [{ size: "Fl. 0,50 l", price: "4,80" }],
-  },
-  {
-    id: "d33",
-    category: "Bier",
-    name: "Indisches Bier",
-    variants: [{ size: "Fl. 0,33 l", price: "4,20" }],
-  },
-  {
-    id: "d34",
-    category: "Bier",
-    name: "Flensburger alkoholfrei",
-    variants: [{ size: "Fl. 0,33 l", price: "3,70" }],
-  },
-  {
-    id: "d35",
-    category: "Bier",
-    name: "Berliner Weiße (rot/grün)",
-    variants: [{ size: "Fl. 0,33 l", price: "3,80" }],
-  },
-
-  // Wein & Sekt
-  {
-    id: "d36",
-    category: "Wein & Sekt",
-    name: "Prosecco",
-    variants: [{ size: "0,10 l", price: "3,40" }],
-  },
-  {
-    id: "d37",
-    category: "Wein & Sekt",
-    name: "Sekt Flasche",
-    variants: [{ size: "Fl. 0,75 l", price: "18,50" }],
-  },
-  {
-    id: "d38",
-    category: "Wein & Sekt",
-    name: "Frucht-Sekt (Mango, Guave, Lychee)",
-    variants: [{ size: "0,10 l", price: "3,70" }],
-  },
-  {
-    id: "d39",
-    category: "Wein & Sekt",
-    name: "Chardonnay (Weißwein trocken)",
-    description: "Frankreich, ausgewogenes Frucht-Säureverhältnis",
-    variants: [
-      { size: "0,20 l", price: "4,80" },
-      { size: "0,50 l", price: "11,50" },
-    ],
-  },
-  {
-    id: "d40",
-    category: "Wein & Sekt",
-    name: "Riesling (Weißwein trocken)",
-    description: "Deutschland, kräftig und vollmundig",
-    variants: [
-      { size: "0,20 l", price: "4,90" },
-      { size: "0,50 l", price: "12,00" },
-    ],
-  },
-  {
-    id: "d41",
-    category: "Wein & Sekt",
-    name: "Indischer Weißwein (trocken)",
-    variants: [
-      { size: "0,20 l", price: "5,50" },
-      { size: "0,50 l", price: "12,90" },
-    ],
-  },
-  {
-    id: "d42",
-    category: "Wein & Sekt",
-    name: "Tempranillo (Rotwein halbtrocken)",
-    description: "Spanien, samtig beerige Aromen",
-    variants: [
-      { size: "0,20 l", price: "5,30" },
-      { size: "0,50 l", price: "12,50" },
-    ],
-  },
-  {
-    id: "d43",
-    category: "Wein & Sekt",
-    name: "Cabernet / Merlot (Rotwein trocken)",
-    description: "Frankreich, vollmundig und weich",
-    variants: [
-      { size: "0,20 l", price: "5,20" },
-      { size: "0,50 l", price: "12,20" },
-    ],
-  },
-  {
-    id: "d44",
-    category: "Wein & Sekt",
-    name: "Indischer Rotwein (trocken)",
-    variants: [
-      { size: "0,20 l", price: "5,50" },
-      { size: "0,50 l", price: "12,90" },
-    ],
-  },
-
-  // Spirituosen
-  {
-    id: "d45",
-    category: "Spirituosen",
-    name: "Dry Sack Sherry (dry/medium)",
-    variants: [{ size: "5 cl", price: "3,10" }],
-  },
-  {
-    id: "d46",
-    category: "Spirituosen",
-    name: "Martini (bianco/rosso)",
-    variants: [{ size: "5 cl", price: "3,10" }],
-  },
-  {
-    id: "d47",
-    category: "Spirituosen",
-    name: "Campari",
-    variants: [{ size: "5 cl", price: "3,90" }],
-  },
-  {
-    id: "d48",
-    category: "Spirituosen",
-    name: "Tequila Sierra Silver/Gold",
-    variants: [
-      { size: "2 cl", price: "2,70" },
-      { size: "4 cl", price: "3,90" },
-    ],
-  },
-  {
-    id: "d49",
-    category: "Spirituosen",
-    name: "Osborne Veterano / Remy Martin V.S.O.P",
-    variants: [
-      { size: "2 cl", price: "2,70" },
-      { size: "4 cl", price: "3,90" },
-    ],
-  },
-  {
-    id: "d50",
-    category: "Spirituosen",
-    name: "Amaretto / Sambuca / Baileys Irish Cream",
-    variants: [
-      { size: "2 cl", price: "2,70" },
-      { size: "4 cl", price: "3,90" },
-    ],
-  },
-  {
-    id: "d51",
-    category: "Spirituosen",
-    name: "Gin / Absolut Wodka",
-    variants: [
-      { size: "2 cl", price: "2,70" },
-      { size: "4 cl", price: "3,90" },
-    ],
-  },
-  {
-    id: "d52",
-    category: "Spirituosen",
-    name: "Havana Club 3y / Myer's Rum",
-    variants: [
-      { size: "2 cl", price: "2,90" },
-      { size: "4 cl", price: "4,90" },
-    ],
-  },
-  {
-    id: "d53",
-    category: "Spirituosen",
-    name: "Old Monk (Indischer Rum 7 Jahre alt)",
-    variants: [
-      { size: "2 cl", price: "3,90" },
-      { size: "4 cl", price: "6,50" },
-    ],
-  },
-  {
-    id: "d54",
-    category: "Spirituosen",
-    name: "Johnnie Walker / Jim Beam",
-    variants: [
-      { size: "2 cl", price: "2,70" },
-      { size: "4 cl", price: "5,20" },
-    ],
-  },
-  {
-    id: "d55",
-    category: "Spirituosen",
-    name: "Chivas Regal / Glennfidich",
-    variants: [
-      { size: "2 cl", price: "3,20" },
-      { size: "4 cl", price: "6,30" },
-    ],
-  },
-  {
-    id: "d56",
-    category: "Spirituosen",
-    name: "Ramazotti / Fernet Branca / Averna / Jägermeister",
-    variants: [
-      { size: "2 cl", price: "2,10" },
-      { size: "4 cl", price: "4,10" },
-    ],
-  },
-
-  // Warme Getränke
-  {
-    id: "d57",
-    category: "Alkoholfreie Getränke",
-    name: "Kaffee / Espresso / Espresso Macchiato",
-    variants: [{ size: "Tasse", price: "2,30" }],
-  },
-  {
-    id: "d58",
-    category: "Alkoholfreie Getränke",
-    name: "Doppelter Espresso",
-    variants: [{ size: "Tasse", price: "3,20" }],
-  },
-  {
-    id: "d59",
-    category: "Alkoholfreie Getränke",
-    name: "Cappuccino",
-    variants: [{ size: "Tasse", price: "3,10" }],
-  },
-  {
-    id: "d60",
-    category: "Alkoholfreie Getränke",
-    name: "Milchkaffee / Latte Macchiato / Heisse Schokolade",
-    variants: [{ size: "Glas", price: "4,30" }],
-  },
-  {
-    id: "d61",
-    category: "Lassi & Indische Getränke",
-    name: "Indischer Masala Chai (Yogi Tee)",
-    description: "Gewürztee mit Milch und Honig",
-    variants: [
-      { size: "Glas", price: "2,90" },
-      { size: "Kännchen", price: "4,50" },
-    ],
-  },
-  {
-    id: "d62",
-    category: "Alkoholfreie Getränke",
-    name: "Tee Spezialitäten (Assam, Darjeeling, Earl Grey, Ingwer, Pfefferminz)",
-    variants: [{ size: "Kännchen / Glas", price: "4,30" }],
   },
 ];
 

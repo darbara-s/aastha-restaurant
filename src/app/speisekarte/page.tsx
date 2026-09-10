@@ -28,7 +28,6 @@ const FOOD_CATEGORIES = [
   "Hähnchengerichte",
   "Lammgerichte",
   "Tandoor Gerichte",
-  "Für den kleinen Hunger",
   "Kindergerichte",
   "Entengerichte",
   "Thalis",
@@ -39,11 +38,8 @@ const FOOD_CATEGORIES = [
 
 const DRINK_CATEGORIES = [
   "Alle",
-  "Alkoholfreie Getränke",
-  "Lassi & Indische Getränke",
-  "Bier",
-  "Wein & Sekt",
-  "Spirituosen",
+  "Non-Alcoholic Drinks",
+  "Alcoholic Beverages",
 ];
 
 export default function SpeisekartePage() {
@@ -462,10 +458,15 @@ function DrinkCard({ item }: { item: DrinkItem }) {
         {item.variants.map((v) => {
           const qty = getItemQuantity(item.id, v.size);
           return (
-            <div key={v.size} className="flex items-center justify-between gap-2">
-              <span className="text-xs font-semibold text-brand-text-muted">{v.size}</span>
-              <div className="flex items-center gap-3">
-                <span className="font-extrabold text-brand-primary text-xs md:text-sm">
+            <div key={v.size} className="flex items-center justify-between gap-3 py-1">
+              <div className="flex flex-col min-w-0">
+                <span className="text-xs font-semibold text-brand-text">{v.size}</span>
+                {v.info && (
+                  <span className="text-[11px] text-brand-text-muted leading-snug">{v.info}</span>
+                )}
+              </div>
+              <div className="flex items-center gap-3 shrink-0">
+                <span className="font-extrabold text-brand-primary text-xs md:text-sm whitespace-nowrap">
                   {v.price} €
                 </span>
 
